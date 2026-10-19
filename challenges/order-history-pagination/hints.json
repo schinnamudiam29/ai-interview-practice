@@ -1,0 +1,14 @@
+[
+  {
+    "id": "h1",
+    "text": "Run the visible tests and print the ids you get back on each page. Which order goes missing, and what does it have in common with the last order on the page before it?"
+  },
+  {
+    "id": "h2",
+    "text": "The cursor only remembers a timestamp. When two orders share the same created_at, a timestamp alone can't say where the previous page stopped. What extra piece of data would make a position in the list unique?"
+  },
+  {
+    "id": "h3",
+    "text": "Sort by a tuple that is unique per order and store the whole tuple in the cursor; compare tuples, not timestamps. Then check what happens when the remaining orders exactly fill the last page: fetching one extra row tells you whether another page exists."
+  }
+]

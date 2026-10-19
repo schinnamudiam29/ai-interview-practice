@@ -1,0 +1,48 @@
+{
+  "name": "ai-interview-practice",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "challenges": "tsx scripts/build-challenges.ts && node scripts/copy-monaco.mjs",
+    "predev": "npm run challenges",
+    "dev": "next dev",
+    "prebuild": "npm run challenges",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "npm run challenges && tsc --noEmit",
+    "pretest": "npm run challenges",
+    "test": "vitest run",
+    "verify:challenges": "for d in challenges/*/; do python3 scripts/verify_challenge.py \"$d\" || exit 1; done"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.118.0",
+    "e2b": "^2.56.0",
+    "monaco-editor": "^0.55.1",
+    "next": "15.5.28",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "server-only": "^0.0.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.28",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "vitest": "^3.2.7"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

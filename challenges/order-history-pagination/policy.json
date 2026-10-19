@@ -1,0 +1,18 @@
+{
+  "interview": {
+    "mode": "interview",
+    "allow": ["explain_concept", "explain_error", "review_user_code", "write_code", "debug_help"],
+    "deny": ["hidden_tests", "reference_solution"],
+    "max_code_lines_per_reply": 200,
+    "max_messages": 40
+  },
+  "guided": {
+    "mode": "guided",
+    "allow": ["explain_concept", "explain_error", "socratic_question", "review_user_code", "hint"],
+    "deny": ["full_solution", "full_pseudocode", "patch_for_target_bug", "hidden_tests"],
+    "max_code_lines_per_reply": 6,
+    "hint_ladder": ["h1", "h2", "h3"],
+    "help_budget": 3,
+    "max_messages": 30
+  }
+}

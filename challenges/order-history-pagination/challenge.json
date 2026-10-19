@@ -1,0 +1,17 @@
+{
+  "slug": "order-history-pagination",
+  "title": "Orders keep disappearing from order history",
+  "summary": "Customers report orders missing from their history page. Fix the cursor pagination without breaking the API contract.",
+  "format": "debug",
+  "language": "python",
+  "difficulty": "medium",
+  "estimatedMinutes": 45,
+  "isDemo": true,
+  "openFile": "orders/service.py",
+  "suites": {
+    "visible": ["tests/visible"],
+    "hidden": ["tests/hidden"],
+    "twist": ["tests/twist"]
+  },
+  "trap": "Changing `>` to `>=` on the timestamp makes the visible test pass for some data but duplicates orders; the real fix is a compound (created_at, id) cursor plus fetching limit+1."
+}

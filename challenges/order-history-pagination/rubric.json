@@ -1,0 +1,19 @@
+{
+  "root_cause": "Cursor stores only created_at; orders sharing a timestamp at a page boundary are skipped (and a naive >= fix duplicates them). Secondary: next_cursor is emitted when the last page is exactly full, and malformed cursors with valid base64/JSON raise KeyError instead of ValueError.",
+  "expected_fix_points": [
+    "Sort by a unique key such as (created_at, id)",
+    "Encode both fields in the cursor and compare tuples",
+    "Fetch limit + 1 rows to decide whether next_cursor exists",
+    "Normalise every cursor decoding failure to ValueError -> 400"
+  ],
+  "twist_points": [
+    "Direction parameter validated in service and API",
+    "Descending comparison uses < on the tuple",
+    "Cursor carries its direction; mismatch is rejected"
+  ],
+  "good_tests_to_add": [
+    "Many orders with identical timestamps",
+    "Exactly-full last page",
+    "Malformed cursor variants"
+  ]
+}
